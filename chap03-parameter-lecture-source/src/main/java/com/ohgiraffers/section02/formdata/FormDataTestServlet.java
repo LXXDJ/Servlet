@@ -18,17 +18,16 @@ public class FormDataTestServlet extends HttpServlet {
         System.out.println("name : " + name);
 
         Map<String, String[]> requestMap = request.getParameterMap();
+        
         Set<String> keySet = requestMap.keySet();
         Iterator<String> keyIter = keySet.iterator();
 
-        while(keyIter.hasNext()){
+        while (keyIter.hasNext()){
             String key = keyIter.next();
-            String[] value = requestMap.get(key);
+            System.out.println("key = " + key);
 
-            System.out.println("key : " + key);
-            for(int i = 0; i<value.length; i++){
-                System.out.println("value[" + i + "] : " + value[i]);
-            }
+            String[] value = requestMap.get(key);
+            for(int i=0; i<value.length; i++) System.out.println(value[i]);
         }
 
         /* [Iterator & Enumeration]
